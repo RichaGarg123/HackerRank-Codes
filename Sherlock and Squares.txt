@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+class Solution {
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+        string Nums= string.Empty;
+        int count=0;
+        int t=Convert.ToInt32(Console.ReadLine());
+        for(int a0=0;a0<t;a0++){
+            count=0;
+            Nums=Console.ReadLine();
+            string[] NumsContent= Nums.Split(' ');
+           
+            int n1=(int)Math.Ceiling(Math.Sqrt((Convert.ToInt32(NumsContent[0]))));
+            int n2=(int)Math.Floor(Math.Sqrt((Convert.ToInt32(NumsContent[1]))));
+            
+            count=n2-n1+1;
+                //also to check for perfect square can take square root and then if Math.Ceiling(root)= Math.Floor(root)
+                //if((Math.Sqrt(i))% 1==0)
+                //to avoid time outs can take square roots of both and check the numbers between them
+                
+                 
+            
+            Console.WriteLine(count.ToString());
+        }
+    }
+}

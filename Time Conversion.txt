@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+class Solution {
+
+    static void Main(String[] args) {
+        string time = Console.ReadLine();
+        StringBuilder finalString= new StringBuilder();
+        
+        if(time.Substring(time.Length-2, 2)=="PM")
+            {
+            int hour= Convert.ToInt32(time.Substring(0, 2));
+            
+            
+            if(hour!=12)
+                {
+                 hour=hour+12;
+                finalString.Append(hour.ToString());
+                finalString.Append(time.Substring(2,time.Length-4));
+               
+            }
+            else
+                {
+                finalString.Append(time.Substring(0,time.Length-2));
+                
+            }
+        }
+        if(time.Substring(time.Length-2, 2)=="AM")
+            {
+            int hour= Convert.ToInt32(time.Substring(0, 2));
+            if(hour==12)
+             {
+               finalString.Append("00");
+               finalString.Append(time.Substring(2,time.Length-4));
+            }
+             else
+                {
+                finalString.Append(time.Substring(0,time.Length-2));
+                
+            }
+                   
+        }
+        Console.WriteLine(finalString.ToString());
+    }
+}

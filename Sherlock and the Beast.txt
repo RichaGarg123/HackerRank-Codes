@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+class Solution {
+
+    static void Main(String[] args) {
+        int t = Convert.ToInt32(Console.ReadLine());
+        int temp=0;
+        StringBuilder decentNumber= new StringBuilder();
+        for(int a0 = 0; a0 < t; a0++){
+            int n = Convert.ToInt32(Console.ReadLine());
+            decentNumber.Clear();
+            temp=n;
+            while(temp>0)
+                {
+                if(temp%3==0 && (n-temp)%5==0)
+                    {
+                    for(int i=1; i<=temp; i++)
+                        {
+                        decentNumber.Append("5");
+                    }
+                    for(int i=1; i<=(n-temp); i++)
+                        {
+                        decentNumber.Append("3");
+                    }
+                    Console.WriteLine(decentNumber.ToString());
+                 break;   
+                }
+               
+                else
+                    temp--;
+            }
+            if(decentNumber.Length==0 && n%5==0)
+                {
+                for(int i=n; i>0; i--)
+                    decentNumber.Append("3");
+                Console.WriteLine(decentNumber.ToString());
+            }
+           
+                else if(decentNumber.Length==0 )
+                   { decentNumber.Append(-1);
+                    Console.WriteLine(decentNumber.ToString());
+                       }
+                    
+            
+           
+        }
+    }
+}
