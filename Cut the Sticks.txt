@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+class Solution {
+
+    static void Main(String[] args) {
+        int n = Convert.ToInt32(Console.ReadLine());
+        int cutLength=0;
+        int numOfSticks=0;
+        string[] arr_temp = Console.ReadLine().Split(' ');
+        int[] arr = Array.ConvertAll(arr_temp,Int32.Parse);
+        //sorting the array in ascending order
+        Array.Sort(arr);
+        Console.WriteLine(n.ToString());
+        for(int i=0;i<n;i++)
+            {
+            if(arr[i]!=0)
+                {
+                cutLength=arr[i];
+                for(int j=i; j<n;j++)
+                    {
+                    arr[j]=arr[j]-cutLength;
+                }
+                numOfSticks=0;
+                for(int j=n-1; j>=i; j--)
+                    {
+                    if(arr[j]!=0)
+                        {
+                        numOfSticks++;
+                    }
+                }
+                if(numOfSticks !=0)
+                Console.WriteLine(numOfSticks.ToString());
+            }
+        }
+        
+    }
+}
