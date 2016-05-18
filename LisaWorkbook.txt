@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+class Solution {
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+        string[] tokens_n = Console.ReadLine().Split(' ');
+            int numChapters = Convert.ToInt32(tokens_n[0]);
+            int maxQuesPerPage = Convert.ToInt32(tokens_n[1]);
+         string[] tokens_ch = Console.ReadLine().Split(' ');
+        int special=0;
+        int numPages=0;
+        for(int i=0; i<numChapters; i++)
+            {
+            for(int j=1;j<=Convert.ToInt32(tokens_ch[i]); j++)
+                {
+                if(maxQuesPerPage !=1)
+                {
+                    if(j%maxQuesPerPage==1)
+                    numPages++;
+                if(j==numPages)
+                    special++;
+                }
+                else
+                    {
+                    numPages++;
+                    if(j==numPages)
+                    special++;
+                }
+                    
+            }
+        }
+        Console.WriteLine(special.ToString());
+    }
+}
